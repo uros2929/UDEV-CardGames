@@ -1,5 +1,11 @@
 # CardGames
 
+App with card games like : Blackjack,Tablić(card game which is popular in Serbia ) , etc.
+
+## Online [DEMO](https://uros2929.github.io/UDEV-CardGames/) version
+ 
+-First commit is create deck and shuffle deck + .
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.2.
 
 ## Development server
