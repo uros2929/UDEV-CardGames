@@ -1,11 +1,37 @@
+$color1:#014289;
+$color2:#006FAF;
+$color3:#009AC0;
+$color4:#00CCBC;
+$color5:#60F3AB;
+
+.homeHeader{
+    align-content: center;
+    display: flex;
+    justify-content: center;
+    height: 100px;
+    button{
+        background-color: $color3;
+        border: none;
+        color: white;
+        cursor: pointer;
+        font-size: 20px;
+        font-weight: 600;
+        margin-right: 2%;
+        width: 20%;
+    }
+    button:hover{
+        background-color: $color4;
+    }
+}
 .homeAll{
     display: grid;
     grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto auto;
+    margin-top: 3%;
     width: 100%;
 }
 .cardOfCards{
     color: white;
-    height: 211px;
+    height: 70px;
     text-align: center;
     width: 138px;
 }

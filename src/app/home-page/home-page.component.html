@@ -1,5 +1,6 @@
 <div class="homeHeader">
-  <button (click)="shuffleDeck()">Shuffle</button> 
+  <button routerLink='/blackJack'>BlackJack</button>
+  <button routerLink='/tablic'>Tablić</button>
 </div>
 <div class="homeAll">
   <div class='cardOfCards' *ngFor="let prop of deckArr">
@@ -12,10 +13,10 @@
     <img src="assets/cardsImg/8C.jpg" *ngIf="prop.name == '8ofClubs'">
     <img src="assets/cardsImg/9C.jpg" *ngIf="prop.name == '9ofClubs'">
     <img src="assets/cardsImg/10C.jpg" *ngIf="prop.name == '10ofClubs'">
-    <img src="assets/cardsImg/12C.jpg" *ngIf="prop.name == 'JofClubs'">
-    <img src="assets/cardsImg/13C.jpg" *ngIf="prop.name == 'QofClubs'">
-    <img src="assets/cardsImg/14C.jpg" *ngIf="prop.name == 'KofClubs'">
-    <img src="assets/cardsImg/1C.jpg" *ngIf="prop.name == 'AofClubs'">
+    <img src="assets/cardsImg/12C.jpg" *ngIf="prop.name == '12ofClubs'">
+    <img src="assets/cardsImg/13C.jpg" *ngIf="prop.name == '13ofClubs'">
+    <img src="assets/cardsImg/14C.jpg" *ngIf="prop.name == '14ofClubs'">
+    <img src="assets/cardsImg/1C.jpg" *ngIf="prop.name == '11ofClubs'">
     <img src="assets/cardsImg/2D.jpg" *ngIf="prop.name == '2ofDiamonds'">
     <img src="assets/cardsImg/3D.jpg" *ngIf="prop.name == '3ofDiamonds'">
     <img src="assets/cardsImg/4D.jpg" *ngIf="prop.name == '4ofDiamonds'">
@@ -25,10 +26,10 @@
     <img src="assets/cardsImg/8D.jpg" *ngIf="prop.name == '8ofDiamonds'">
     <img src="assets/cardsImg/9D.jpg" *ngIf="prop.name == '9ofDiamonds'">
     <img src="assets/cardsImg/10D.jpg" *ngIf="prop.name == '10ofDiamonds'">
-    <img src="assets/cardsImg/12D.jpg" *ngIf="prop.name == 'JofDiamonds'">
-    <img src="assets/cardsImg/13D.jpg" *ngIf="prop.name == 'QofDiamonds'">
-    <img src="assets/cardsImg/14D.jpg" *ngIf="prop.name == 'KofDiamonds'">
-    <img src="assets/cardsImg/1D.jpg" *ngIf="prop.name == 'AofDiamonds'">
+    <img src="assets/cardsImg/12D.jpg" *ngIf="prop.name == '12ofDiamonds'">
+    <img src="assets/cardsImg/13D.jpg" *ngIf="prop.name == '13ofDiamonds'">
+    <img src="assets/cardsImg/14D.jpg" *ngIf="prop.name == '14ofDiamonds'">
+    <img src="assets/cardsImg/1D.jpg" *ngIf="prop.name == '11ofDiamonds'">
     <img src="assets/cardsImg/2S.jpg" *ngIf="prop.name == '2ofSpades'">
     <img src="assets/cardsImg/3S.jpg" *ngIf="prop.name == '3ofSpades'">
     <img src="assets/cardsImg/4S.jpg" *ngIf="prop.name == '4ofSpades'">
@@ -38,10 +39,10 @@
     <img src="assets/cardsImg/8S.jpg" *ngIf="prop.name == '8ofSpades'">
     <img src="assets/cardsImg/9S.jpg" *ngIf="prop.name == '9ofSpades'">
     <img src="assets/cardsImg/10S.jpg" *ngIf="prop.name == '10ofSpades'">
-    <img src="assets/cardsImg/12S.jpg" *ngIf="prop.name == 'JofSpades'">
-    <img src="assets/cardsImg/13S.jpg" *ngIf="prop.name == 'QofSpades'">
-    <img src="assets/cardsImg/14S.jpg" *ngIf="prop.name == 'KofSpades'">
-    <img src="assets/cardsImg/1S.jpg" *ngIf="prop.name == 'AofSpades'">
+    <img src="assets/cardsImg/12S.jpg" *ngIf="prop.name == '12ofSpades'">
+    <img src="assets/cardsImg/13S.jpg" *ngIf="prop.name == '13ofSpades'">
+    <img src="assets/cardsImg/14S.jpg" *ngIf="prop.name == '14ofSpades'">
+    <img src="assets/cardsImg/1S.jpg" *ngIf="prop.name == '11ofSpades'">
     <img src="assets/cardsImg/2H.jpg" *ngIf="prop.name == '2ofHearts'">
     <img src="assets/cardsImg/3H.jpg" *ngIf="prop.name == '3ofHearts'">
     <img src="assets/cardsImg/4H.jpg" *ngIf="prop.name == '4ofHearts'">
@@ -51,10 +52,9 @@
     <img src="assets/cardsImg/8H.jpg" *ngIf="prop.name == '8ofHearts'">
     <img src="assets/cardsImg/9H.jpg" *ngIf="prop.name == '9ofHearts'">
     <img src="assets/cardsImg/10H.jpg" *ngIf="prop.name == '10ofHearts'">
-    <img src="assets/cardsImg/12H.jpg" *ngIf="prop.name == 'JofHearts'">
-    <img src="assets/cardsImg/13H.jpg" *ngIf="prop.name == 'QofHearts'">
-    <img src="assets/cardsImg/14H.jpg" *ngIf="prop.name == 'KofHearts'">
-    <img src="assets/cardsImg/1H.jpg" *ngIf="prop.name == 'AofHearts'">
-    <p>{{prop.name}}</p>
+    <img src="assets/cardsImg/12H.jpg" *ngIf="prop.name == '12ofHearts'">
+    <img src="assets/cardsImg/13H.jpg" *ngIf="prop.name == '13ofHearts'">
+    <img src="assets/cardsImg/14H.jpg" *ngIf="prop.name == '14ofHearts'">
+    <img src="assets/cardsImg/1H.jpg" *ngIf="prop.name == '11ofHearts'">
   </div>
 </div>

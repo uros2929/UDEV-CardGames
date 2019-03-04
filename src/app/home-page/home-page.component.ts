@@ -14,12 +14,17 @@ export class HomePageComponent implements OnInit {
   constructor(private _deckService:DeckService) { }
 
   ngOnInit() {
-   this._deckService.createCardObj();
-   this.deckArr=this._deckService.deck;
+  if(this._deckService.deck=[]){
+    this._deckService.createCardObj();
+    this.deckArr=this._deckService.deck;
+  }else{
+    return;
   }
-  shuffleDeck(){
-    this._deckService.shuffleDeck();  // JUST TRY 
+
   }
+  // shuffleDeck(){
+  //   this._deckService.shuffleDeck();  // JUST TRY 
+  // }
 
 
 
