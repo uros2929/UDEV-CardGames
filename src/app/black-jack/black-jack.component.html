@@ -1,10 +1,12 @@
 <div class="header">
+  <h1><a routerLink="/">UDEV CARD GAMES</a></h1>
   <button (click)="shuffleDeck()" id="shuffleDeck">Shuffle</button>
   <button (click)="firstDeal()" id="btnFirstDeal">Deal</button>
 </div>
 <div class="main">
   <div class="computer">
     <div class="computerCards" *ngFor="let prop of computerCardsArr">
+      <img src="assets/cardsImg/back_blue.jpg" *ngIf="prop.name == 'secondCardHide'">
       <img src="assets/cardsImg/2C.jpg" *ngIf="prop.name == '2ofClubs'">
       <img src="assets/cardsImg/3C.jpg" *ngIf="prop.name == '3ofClubs'">
       <img src="assets/cardsImg/4C.jpg" *ngIf="prop.name == '4ofClubs'">
@@ -123,6 +125,12 @@
       <div class="playerCoins">
         <h3>COINS:{{playerCoins}}</h3>
         <p>BET: {{betValue}} COINS</p>
+        <select class="betValue" name="betValue" id="betValue" (change)="setBetValue($event)">
+          <option value="100">100</option>
+          <option value="200">200</option>
+          <option value="500">500</option>
+          <option value="1000">1000</option>
+        </select>
       </div>
   </div>
  

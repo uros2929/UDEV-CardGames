@@ -10,6 +10,15 @@ $color5:#60F3AB;
     display: grid;
     height: 10%;
     justify-content: center;
+    h1{
+        left: 2%;
+        position: absolute;
+        width: 40%;
+        a{
+            color: white;
+            text-decoration: none;
+        }
+    }
     button{
         cursor: pointer;
         font-size: 18px;
@@ -75,7 +84,12 @@ $color5:#60F3AB;
             width: 30%;  
             p{
                 font-style: italic;
+                margin-bottom: 0;
             } 
+            .betValue{
+                text-align:center;
+                width: 50%;
+            }
         }
         .playerCards{
             display: grid;

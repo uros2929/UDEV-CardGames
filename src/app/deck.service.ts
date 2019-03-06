@@ -7,6 +7,7 @@ export class DeckService {
   deck = [];
   values = ['2', '3', '4', '5', '6', '7', '8', '9', '10', '12', '13', '14', '11'];
   suits = ['Clubs', 'Diamonds', 'Spades', 'Hearts']
+  
   constructor() { }
 
   createCard(valueP, suitP) {

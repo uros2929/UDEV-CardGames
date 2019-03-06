@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DeckService } from '../deck.service';
 
+
 @Component({
   selector: 'app-black-jack',
   templateUrl: './black-jack.component.html',
@@ -11,6 +12,7 @@ export class BlackJackComponent implements OnInit {
 
   deckArr;
   computerCardsArr = ['start'];
+  computerCardArr2=[];
   playerCardsArr = ['start'];
   newArrOfPlayerValues = [];
   newArrOfComputerValues = [];
@@ -18,7 +20,8 @@ export class BlackJackComponent implements OnInit {
   computerResult = 0;
   playerCoins = 10000;
   betValue=100;
-  
+
+  secondCardForComputer=[];
 
   constructor(private _deckService: DeckService) { }
 
@@ -26,12 +29,15 @@ export class BlackJackComponent implements OnInit {
     this._deckService.createCardObj();
   }
 
+  makeHidenCard(){
+    return  {name:'secondCardHide',suit:'blue',value:'0'}  //Because of err if only put object in "secondCardForComputer" !!!!
+  }
+
   shuffleDeck() {
     this._deckService.shuffleDeck();
     this.deckArr = this._deckService.deck;
   }
   firstDeal() {
- 
     if (this.deckArr == undefined) {
       alert('Shuffle deck please !')
       return;
@@ -40,11 +46,11 @@ export class BlackJackComponent implements OnInit {
       this._deckService.createCardObj();
       this.shuffleDeck()
     }
-    this.setBet();
+    this.playerCoins -= this.betValue
     this.dealToPlayer();
-    this.dealToComputer();
+    this.dealtoCoputerFirstDeal();
     this.dealToPlayer();
-    this.dealToComputer();
+    this.dealToComputerSecondCard();
     this.resultOfPlayersCards();
     this.resultOfComputerCards();
     this.getPlayerResult();
@@ -56,18 +62,26 @@ export class BlackJackComponent implements OnInit {
     this.playerLose();
     this.playerWin();
     this.computerWin();
-
   }
 
   dealToPlayer() {
     let newCardPlayer = this.deckArr.shift();
     this.playerCardsArr.push(newCardPlayer);
   }
+  dealtoCoputerFirstDeal(){
+    let newCardComp = this.deckArr.shift();
+    this.secondCardForComputer.push(this.makeHidenCard())
+    this.computerCardsArr.push(newCardComp,this.secondCardForComputer.shift())
+  }
   dealToComputer() {
     let newCardComp = this.deckArr.shift();
     this.computerCardsArr.push(newCardComp)
   }
 
+  dealToComputerSecondCard(){
+    let newCardComp = this.deckArr.shift();
+    this.computerCardArr2.push(newCardComp)
+  }
   dealCardToPlayer() {
     if (this.deckArr.length < 4) {
       this._deckService.createCardObj();
@@ -126,6 +140,7 @@ export class BlackJackComponent implements OnInit {
         this.computerResult = 0;
         this.getDocById('playerButtons', 'none');
         this.getDocById('btnFirstDeal', 'block');
+        
       }, 1500)
     }
   }
@@ -145,7 +160,7 @@ export class BlackJackComponent implements OnInit {
       }, 1500)
     }
   }
-  computerWin(){
+  computerWin() {
     if (this.computerResult == 21) {
       alert('BlackJack, computer win !');
       setTimeout(() => {
@@ -162,16 +177,17 @@ export class BlackJackComponent implements OnInit {
   }
   playerHold() {
     this.getDocById('playerDeal', 'none');
-
-      if (this.computerResult < this.playerResult) {
-        this.dealToComputer();
-        this.newArrOfComputerValues = [];
-        this.resultOfComputerCards();
-        this.getComputerResult();
-       }
-    if (this.computerResult==21) {
+    this.computerCardsArr.pop()
+    this.computerCardsArr.push(this.computerCardArr2[0])
+    while (this.computerResult < this.playerResult) {
+      this.dealToComputer();
+      this.newArrOfComputerValues = [];
+      this.resultOfComputerCards();
+      this.getComputerResult();
+    }
+    if (this.computerResult == 21) {
       alert('BlackJack, computer win !');
-      setTimeout(()=>{
+      setTimeout(() => {
         this.playerCardsArr = ['start'];
         this.newArrOfPlayerValues = [];
         this.playerResult = 0;
@@ -180,11 +196,11 @@ export class BlackJackComponent implements OnInit {
         this.computerResult = 0;
         this.getDocById('playerButtons', 'none');
         this.getDocById('btnFirstDeal', 'block');
-      },1500)
+      }, 1500)
     }
-    if (this.computerResult>21) {
+    if (this.computerResult > 21) {
       alert('Player win !');
-      setTimeout(()=>{
+      setTimeout(() => {
         this.playerCardsArr = ['start'];
         this.newArrOfPlayerValues = [];
         this.playerResult = 0;
@@ -194,11 +210,11 @@ export class BlackJackComponent implements OnInit {
         this.getDocById('playerButtons', 'none');
         this.getDocById('btnFirstDeal', 'block');
         this.playerCoins += this.betValue * 2
-      },1500)
+      }, 1500)
     }
-    if (this.computerResult>this.playerResult && this.computerResult<21) {
+    if (this.computerResult > this.playerResult && this.computerResult < 21) {
       alert('Computer win !');
-      setTimeout(()=>{
+      setTimeout(() => {
         this.playerCardsArr = ['start'];
         this.newArrOfPlayerValues = [];
         this.playerResult = 0;
@@ -207,11 +223,11 @@ export class BlackJackComponent implements OnInit {
         this.computerResult = 0;
         this.getDocById('playerButtons', 'none');
         this.getDocById('btnFirstDeal', 'block');
-      },1500)
+      }, 1500)
     }
-    if (this.computerResult==this.playerResult) {
+    if (this.computerResult == this.playerResult) {
       alert('Draw !');
-      setTimeout(()=>{
+      setTimeout(() => {
         this.playerCardsArr = ['start'];
         this.newArrOfPlayerValues = [];
         this.playerResult = 0;
@@ -221,16 +237,16 @@ export class BlackJackComponent implements OnInit {
         this.getDocById('playerButtons', 'none');
         this.getDocById('btnFirstDeal', 'block');
         this.playerCoins += this.betValue
-      },1500)
+      }, 1500)
     }
+  }
+  setBetValue(event){
+    let selectedBetValue=event.target.value;
+    this.betValue=parseInt(selectedBetValue)
+    return this.betValue
   }
 
   getDocById(id, val) {
     document.getElementById(id).style.display = val
-  }
-
-  setBet() {
-    let betValue=
-    this.playerCoins -= this.betValue;
   }
 }
