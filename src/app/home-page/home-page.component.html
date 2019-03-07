@@ -1,60 +1,67 @@
-<div class="homeHeader">
-  <button routerLink='/blackJack'>BlackJack</button>
-  <button routerLink='/tablic'>Tablić</button>
+<div class="homeMain">
+  <div class="blackJackDiv">
+    <div class="blackJackModal">
+      <button routerLink='/blackJack'>Play</button>
+      <button (click)="showModalGameInfoBlackJack()">Game Info</button>
+    </div>
+  </div>
+  <div class="tablicDiv">
+    <div class="tablicModal">
+      <button routerLink='/tablic'>Play</button>
+      <button (click)="showModalGameInfoTablic()">Game Info</button>
+    </div>
+  </div>
 </div>
-<div class="homeAll">
-  <div class='cardOfCards' *ngFor="let prop of deckArr">
-    <img src="assets/cardsImg/2C.jpg" *ngIf="prop.name == '2ofClubs'">
-    <img src="assets/cardsImg/3C.jpg" *ngIf="prop.name == '3ofClubs'">
-    <img src="assets/cardsImg/4C.jpg" *ngIf="prop.name == '4ofClubs'">
-    <img src="assets/cardsImg/5C.jpg" *ngIf="prop.name == '5ofClubs'">
-    <img src="assets/cardsImg/6C.jpg" *ngIf="prop.name == '6ofClubs'">
-    <img src="assets/cardsImg/7C.jpg" *ngIf="prop.name == '7ofClubs'">
-    <img src="assets/cardsImg/8C.jpg" *ngIf="prop.name == '8ofClubs'">
-    <img src="assets/cardsImg/9C.jpg" *ngIf="prop.name == '9ofClubs'">
-    <img src="assets/cardsImg/10C.jpg" *ngIf="prop.name == '10ofClubs'">
-    <img src="assets/cardsImg/12C.jpg" *ngIf="prop.name == '12ofClubs'">
-    <img src="assets/cardsImg/13C.jpg" *ngIf="prop.name == '13ofClubs'">
-    <img src="assets/cardsImg/14C.jpg" *ngIf="prop.name == '14ofClubs'">
-    <img src="assets/cardsImg/1C.jpg" *ngIf="prop.name == '11ofClubs'">
-    <img src="assets/cardsImg/2D.jpg" *ngIf="prop.name == '2ofDiamonds'">
-    <img src="assets/cardsImg/3D.jpg" *ngIf="prop.name == '3ofDiamonds'">
-    <img src="assets/cardsImg/4D.jpg" *ngIf="prop.name == '4ofDiamonds'">
-    <img src="assets/cardsImg/5D.jpg" *ngIf="prop.name == '5ofDiamonds'">
-    <img src="assets/cardsImg/6D.jpg" *ngIf="prop.name == '6ofDiamonds'">
-    <img src="assets/cardsImg/7D.jpg" *ngIf="prop.name == '7ofDiamonds'">
-    <img src="assets/cardsImg/8D.jpg" *ngIf="prop.name == '8ofDiamonds'">
-    <img src="assets/cardsImg/9D.jpg" *ngIf="prop.name == '9ofDiamonds'">
-    <img src="assets/cardsImg/10D.jpg" *ngIf="prop.name == '10ofDiamonds'">
-    <img src="assets/cardsImg/12D.jpg" *ngIf="prop.name == '12ofDiamonds'">
-    <img src="assets/cardsImg/13D.jpg" *ngIf="prop.name == '13ofDiamonds'">
-    <img src="assets/cardsImg/14D.jpg" *ngIf="prop.name == '14ofDiamonds'">
-    <img src="assets/cardsImg/1D.jpg" *ngIf="prop.name == '11ofDiamonds'">
-    <img src="assets/cardsImg/2S.jpg" *ngIf="prop.name == '2ofSpades'">
-    <img src="assets/cardsImg/3S.jpg" *ngIf="prop.name == '3ofSpades'">
-    <img src="assets/cardsImg/4S.jpg" *ngIf="prop.name == '4ofSpades'">
-    <img src="assets/cardsImg/5S.jpg" *ngIf="prop.name == '5ofSpades'">
-    <img src="assets/cardsImg/6S.jpg" *ngIf="prop.name == '6ofSpades'">
-    <img src="assets/cardsImg/7S.jpg" *ngIf="prop.name == '7ofSpades'">
-    <img src="assets/cardsImg/8S.jpg" *ngIf="prop.name == '8ofSpades'">
-    <img src="assets/cardsImg/9S.jpg" *ngIf="prop.name == '9ofSpades'">
-    <img src="assets/cardsImg/10S.jpg" *ngIf="prop.name == '10ofSpades'">
-    <img src="assets/cardsImg/12S.jpg" *ngIf="prop.name == '12ofSpades'">
-    <img src="assets/cardsImg/13S.jpg" *ngIf="prop.name == '13ofSpades'">
-    <img src="assets/cardsImg/14S.jpg" *ngIf="prop.name == '14ofSpades'">
-    <img src="assets/cardsImg/1S.jpg" *ngIf="prop.name == '11ofSpades'">
-    <img src="assets/cardsImg/2H.jpg" *ngIf="prop.name == '2ofHearts'">
-    <img src="assets/cardsImg/3H.jpg" *ngIf="prop.name == '3ofHearts'">
-    <img src="assets/cardsImg/4H.jpg" *ngIf="prop.name == '4ofHearts'">
-    <img src="assets/cardsImg/5H.jpg" *ngIf="prop.name == '5ofHearts'">
-    <img src="assets/cardsImg/6H.jpg" *ngIf="prop.name == '6ofHearts'">
-    <img src="assets/cardsImg/7H.jpg" *ngIf="prop.name == '7ofHearts'">
-    <img src="assets/cardsImg/8H.jpg" *ngIf="prop.name == '8ofHearts'">
-    <img src="assets/cardsImg/9H.jpg" *ngIf="prop.name == '9ofHearts'">
-    <img src="assets/cardsImg/10H.jpg" *ngIf="prop.name == '10ofHearts'">
-    <img src="assets/cardsImg/12H.jpg" *ngIf="prop.name == '12ofHearts'">
-    <img src="assets/cardsImg/13H.jpg" *ngIf="prop.name == '13ofHearts'">
-    <img src="assets/cardsImg/14H.jpg" *ngIf="prop.name == '14ofHearts'">
-    <img src="assets/cardsImg/1H.jpg" *ngIf="prop.name == '11ofHearts'">
+
+<div class="blackJackGameInfoModal" id="blackJackGameInfoModal">
+  <div class="blackJackGameInfoModalMain">
+    <h1>Black Jack</h1>
+    <p>The North American game of Blackjack, also known as 21, has been one of the most popular casino games of the last
+      hundred years and has spread throughout the world. In the 21st century it has been overtaken in popularity by
+      Slots (slot machine games), but it remains one of the most popular casino card games and is available in almost
+      all casinos both on and offline.
+
+      Blackjack is a casino banked game, meaning that players compete against the house rather than each other. The
+      objective is to get a hand total of closer to 21 than the dealer without going over 21 (busting).
+
+      At the start of a Blackjack game, the players and the dealer receive two cards each. The players' cards are
+      normally dealt face up, while the dealer has one face down (called the hole card) and one face up. The best
+      possible Blackjack hand is an opening deal of an ace with any ten-point card.
+
+      The house advantage of this game is derived from several rules that favour the dealer. The most significant of
+      these is that the player must act before the dealer, allowing the player to bust and lose their bet before the
+      dealer plays.</p>
+  </div>
+</div>
+<div class="tablicGameInfoModal" id="tablicGameInfoModal">
+  <div class="tablicGameInfoModalMain">
+    <h1>Tablić</h1>
+    <p>Tablić is a fishing game played in Serbia and other countries of the former Yugoslavia. The Serbian game is
+      described first, followed by the differences in other countries so far as I know them. The almost identical
+      Romanian game Tabinet
+
+      Tablić is played with a standard 52-card deck without jokers. For the purpose of capture the cards have values:
+      king=14, queen=13, jack=12, ace=1 or 11 at the choice of the player, other cards face value. The suits have no
+      significance in this game, except that the diamond10 and club2 are worth extra points in the scoring.
+
+      There are normally either two players, or for four players in fixed partnerships, partners sitting opposite each
+      other. A three-player game is also possible, but less usual. In Serbia the deal and play are counter-clockwise.
+      At your turn you play one card face up on the table. If its value is equal to a card or a set of cards in the
+      layout, you may capture any such cards or sets. No card can belong to more than one captured set at the same time.
+      For example with 2, 3, 4, 7 on the table, a 9 can capture 2+3+4 or 2+7 but not both these sets at once, since the
+      2 can only belong to one of them. You take the captured cards, along with the card you played, and store them face
+      down in your pile of captured cards.
+      If the played card does not match any card or sum of cards, it is simply left face up on the table as an extra
+      card of the layout, which may be captured in a future play. Irrespective of whether the played card captured
+      anything or not, it is then the next player's turn to play.</p>
+      <h2>Scoring</h2>
+      <p>At the end of the play, each player or team scores for captured cards as follows:</p>
+      <ul>
+        <li>Each Ace, King, Queen or Jack: 1 point</li>
+        <li>10 of diamonds: 2 points</li>
+        <li>Other tens: 1 point </li>
+        <li>2 of clubs: 1 point </li>
+        <li>The player or team with most cards: 3 points</li>
+      </ul>
   </div>
 </div>

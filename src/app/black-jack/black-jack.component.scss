@@ -7,7 +7,7 @@ $color5:#60F3AB;
 .header{
     align-content: center;
     border-bottom: 2px solid white;
-    display: grid;
+    display: flex;
     height: 10%;
     justify-content: center;
     h1{
@@ -20,8 +20,20 @@ $color5:#60F3AB;
         }
     }
     button{
+        background-color: $color1;
+        border: 1px solid $color2;
+        border-radius: 50%;
+        color: white;
         cursor: pointer;
-        font-size: 18px;
+        font-size: 16px;
+        margin-top: 1%;
+        margin-left: 2%;
+        height: 70%;
+        width: 10%;
+    }
+    button:hover{
+        background-color: $color4;
+        color: black;
     }
 }
 .main{
@@ -56,9 +68,18 @@ $color5:#60F3AB;
             bottom: 0;
             left: 50%;
             button{
+                background-color: $color1;
+                border: 1px solid $color2;
+                border-radius: 50%;
+                color: white;
                 cursor: pointer;
-                font-size: 18px;
-                width: 100%;
+                font-size: 20px;
+                height: 100px;
+                width: 100px;
+            }
+            button:hover{
+                background-color: $color4;
+                color: black;
             }
         }
         .playerResult{

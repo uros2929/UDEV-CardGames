@@ -42,7 +42,7 @@ export class BlackJackComponent implements OnInit {
       alert('Shuffle deck please !')
       return;
     }
-    if (this.deckArr.length < 4) {
+    if (this.deckArr.length < 4) {                     // Need to change , I need to chancke on every deal if deck is < 1 ... This is only try
       this._deckService.createCardObj();
       this.shuffleDeck()
     }
@@ -179,6 +179,9 @@ export class BlackJackComponent implements OnInit {
     this.getDocById('playerDeal', 'none');
     this.computerCardsArr.pop()
     this.computerCardsArr.push(this.computerCardArr2[0])
+    this.newArrOfComputerValues = [];
+    this.resultOfComputerCards();
+    this.getComputerResult();
     while (this.computerResult < this.playerResult) {
       this.dealToComputer();
       this.newArrOfComputerValues = [];

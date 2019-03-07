@@ -4,27 +4,82 @@ $color3:#009AC0;
 $color4:#00CCBC;
 $color5:#60F3AB;
 
-.homeHeader{
-    align-content: center;
+.homeMain{
     display: flex;
-    justify-content: center;
-    height: 100px;
-    button{
-        background-color: $color3;
-        border: none;
-        color: white;
+    flex-direction: column;
+    height: 100%;
+    .blackJackDiv{
+        align-self: center;
+        border: 2px solid white;
+        background-image: url('../../assets/homeImg/Blackjack.jpg');
+        background-size: contain;
         cursor: pointer;
-        font-size: 20px;
-        font-weight: 600;
-        margin-right: 2%;
-        width: 20%;
+        height: 30%;
+        width: 30%;
+        .blackJackModal{
+            justify-content: center;
+            background-color: rgba(0,0,0,0.3);
+            display: none;
+            flex-direction: column;
+            height: 100%;
+            width: 100%;
+            button{
+                background-color: rgba(0,0,0,0.5);
+                color: white;
+                cursor: pointer;
+                font-size: 20px;
+                margin: 0 auto;
+                height: 35%;
+                width: 50%;
+            }
+            button:hover{
+                background-color: rgba(255,255,255,0.8);  
+                color: black;
+            }
+        }
     }
-    button:hover{
-        background-color: $color4;
+    .blackJackDiv:hover{
+        .blackJackModal{
+            display: flex;
+        }
+    }
+    .tablicDiv{
+        align-self: center;
+        background-image: url('../../assets/homeImg/Tablic.png');
+        background-size: 100% 100%;
+        border: 2px solid white;
+        height: 30%;
+        width: 30%;  
+        .tablicModal{
+            justify-content: center;
+            background-color: rgba(0,0,0,0.3);
+            display: none;
+            flex-direction: column;
+            height: 100%;
+            width: 100%; 
+            button{
+                background-color: rgba(0,0,0,0.5);
+                color: white;
+                cursor: pointer;
+                font-size: 20px;
+                margin: 0 auto;
+                height: 35%;
+                width: 50%;
+            }
+            button:hover{
+                background-color: rgba(255,255,255,0.8);  
+                color: black;
+            }
+        }
+    }
+    .tablicDiv:hover{
+        .tablicModal{
+            display: flex;
+        }
     }
 }
 .homeAll{
-    display: grid;
+    display: none;
     grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto auto;
     margin-top: 3%;
     width: 100%;
@@ -34,4 +89,51 @@ $color5:#60F3AB;
     height: 70px;
     text-align: center;
     width: 138px;
+}
+.blackJackGameInfoModal{
+    background-color: rgba(0,0,0,0.5);
+    display: none;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    .blackJackGameInfoModalMain{
+        align-self: center;
+        background-color: white;
+        height: 50%;
+        justify-self: center;
+        text-align: justify;
+        width: 50%;
+        h1{
+            margin-left: 5%;
+        }
+        p{
+            margin: 0 auto;
+            width: 90%;
+        }
+    }
+}
+.tablicGameInfoModal{
+    background-color: rgba(0,0,0,0.5);
+    display: none;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    .tablicGameInfoModalMain{
+        align-self: center;
+        background-color: white;
+        height: 50%;
+        justify-self: center;
+        text-align: justify;
+        width: 50%;
+        overflow-y: scroll;
+        h1,h2,ul{
+            margin-left: 5%;
+        }
+        p{
+            margin: 0 auto;
+            width: 90%;
+        } 
+    }  
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DeckService } from '../deck.service';
+
 
 @Component({
   selector: 'app-home-page',
@@ -9,23 +9,27 @@ import { DeckService } from '../deck.service';
 export class HomePageComponent implements OnInit {
 
 
-  deckArr;
 
-  constructor(private _deckService:DeckService) { }
+
+  constructor() { }
 
   ngOnInit() {
-  if(this._deckService.deck=[]){
-    this._deckService.createCardObj();
-    this.deckArr=this._deckService.deck;
-  }else{
-    return;
+    window.addEventListener("click",(event)=>{
+     if (event.srcElement.id=="blackJackGameInfoModal") {
+      document.getElementById('blackJackGameInfoModal').style.display='none';
+     }
+     if (event.srcElement.id=="tablicGameInfoModal") {
+      document.getElementById('tablicGameInfoModal').style.display='none';
+     }
+    })
   }
 
+  showModalGameInfoBlackJack(){
+    document.getElementById('blackJackGameInfoModal').style.display='grid';
   }
-  // shuffleDeck(){
-  //   this._deckService.shuffleDeck();  // JUST TRY 
-  // }
-
+  showModalGameInfoTablic(){
+    document.getElementById('tablicGameInfoModal').style.display='grid';
+  }
 
 
 
