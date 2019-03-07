@@ -1,0 +1,55 @@
+$color1:#014289;
+$color2:#006FAF;
+$color3:#009AC0;
+$color4:#00CCBC;
+$color5:#60F3AB;
+
+.header{
+    border-bottom: 2px solid white;
+    height: 10%;
+    h1{
+        left: 2%;
+        position: absolute;
+        width: 40%;
+        a{
+            color: white;
+            text-decoration: none;
+        }
+    }
+}
+.main{
+    height: 90%;
+    .player1Div{
+        background-color: $color5;
+        display: flex;
+        height: 25%;
+        justify-content: center;
+        width: 100%;
+        .player1Cards{
+          cursor: pointer;
+        }
+    }
+    .table{
+        display: grid;
+        grid-template-columns:auto auto;
+        grid-auto-rows: auto;
+        grid-column-gap: 1%;
+        margin-top: 2%;
+        height: 50%;
+        justify-content: center;
+        width: 100%;
+        .tableCards{
+            cursor: pointer;
+        }
+    }
+    .player2Div{
+        background-color: $color5;
+        display: flex;
+        height: 25%;
+        justify-content: center;
+        width: 100%;
+        .player2Cards{
+            cursor: pointer;
+          }
+    }
+}
