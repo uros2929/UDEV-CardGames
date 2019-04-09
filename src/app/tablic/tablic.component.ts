@@ -12,7 +12,12 @@ export class TablicComponent implements OnInit {
   player1Arr = [];
   tableArr = [];
   player2Arr = [];
+  player1Clicked = [];
+  tableClicked = [];
+  player2Clicked = [];
 
+  tableResult;
+  player2Result;
   constructor(private _deckService: DeckService) { }
 
   ngOnInit() {
@@ -22,7 +27,7 @@ export class TablicComponent implements OnInit {
     this.firstDeal();
   }
 
-  firstDeal(){
+  firstDeal() {
     this.dealCardsForTable();
     this.dealCardsToPlayer1();
     this.dealCardsToPlayer2();
@@ -48,13 +53,83 @@ export class TablicComponent implements OnInit {
       this.player2Arr.push(newCard)
     }
   }
-  cardClicked(event){
-    if (event.target.style.border=="") {
-      event.target.style.border="3px solid red"
-    }else{
-      event.target.style.border=""
+  cardClickedOnTable(event) {
+    if (event.target.style.border == "") {
+      event.target.style.border = "3px solid red"
+    } else {
+      event.target.style.border = ""
     }
-    console.log(event.target.className)
+    for (let index = 0; index < this.tableArr.length; index++) {
+      if (this.tableArr[index].name == event.target.className) {
+        this.tableClicked.push(this.tableArr[index])
+      }
+
+    }
+    this.resultOfTableClicked()
   }
 
+  // cardClickedPlayer1(event) {
+  //   if (event.target.style.border == "") {
+  //     event.target.style.border = "5px solid blue"
+  //   } else {
+  //     event.target.style.border = ""
+  //   }
+  //   for (let index = 0; index < this.player1Arr.length; index++) {
+  //     if (this.player1Arr[index].name == event.target.className) {
+  //       this.player1Clicked.push(this.player1Arr[index])
+  //     }
+  //   }
+  //   console.log(this.player1Clicked)
+  // }
+
+  cardClickedPlayer2(event) {
+    if (this.tableClicked.length == 0) {
+      return;
+    } else {
+      if (event.target.style.border == "") {
+        event.target.style.border = "5px solid green"
+      } else {
+        event.target.style.border = ""
+      }
+      for (let index = 0; index < this.player2Arr.length; index++) {
+        if (this.player2Arr[index].name == event.target.className) {
+          this.player2Clicked.push(this.player2Arr[index])
+        }
+      }
+
+      for (let index = 0; index < this.player2Clicked.length; index++) {
+        let a = this.player2Clicked[index].value;
+        this.player2Result = parseInt(a)
+      }
+      if (this.tableResult == this.player2Result) {
+        alert('bravo')
+        for (let index = 0; index < this.player2Arr.length; index++) {
+          if (this.player2Arr[index].name == this.player2Clicked[0].name) {
+            this.player2Arr.splice(index, 1);
+          }
+        }
+        for (let index = 0; index < this.tableArr.length; index++) {
+          for (let i = 0; i < this.tableClicked.length; i++) {
+            if (this.tableArr[index].name == this.tableClicked[i].name) {
+              let indexArr = [];
+              indexArr.push(index)
+              for (let c = 0; c < indexArr.length; c++) {
+                this.tableArr.splice(indexArr[c], 1);
+              }
+            }
+          }
+        }
+      }
+    }
+    this.tableClicked = [];
+    this.player2Clicked = [];
+  }
+
+  resultOfTableClicked() {
+    let a = [];
+    for (let index = 0; index < this.tableClicked.length; index++) {
+      a.push(this.tableClicked[index].value)
+    }
+    this.tableResult = a.reduce((a, b) => parseInt(a) + parseInt(b));
+  }
 }
