@@ -12,12 +12,12 @@ export class TablicComponent implements OnInit {
   player1Arr = [];
   tableArr = [];
   player2Arr = [];
-  player1Clicked = [];
-  tableClicked = [];
-  player2Clicked = [];
-
-  tableResult;
+  player1Clicked=[];
+  tableClicked=[];
+  player2Clicked=[];
   player2Result;
+  tableResult=[];
+  
   constructor(private _deckService: DeckService) { }
 
   ngOnInit() {
@@ -27,7 +27,7 @@ export class TablicComponent implements OnInit {
     this.firstDeal();
   }
 
-  firstDeal() {
+  firstDeal(){
     this.dealCardsForTable();
     this.dealCardsToPlayer1();
     this.dealCardsToPlayer2();
@@ -53,19 +53,13 @@ export class TablicComponent implements OnInit {
       this.player2Arr.push(newCard)
     }
   }
-  cardClickedOnTable(event) {
-    if (event.target.style.border == "") {
-      event.target.style.border = "3px solid red"
-    } else {
-      event.target.style.border = ""
+  cardClicked(event){
+    if (event.target.style.border=="") {
+      event.target.style.border="3px solid red"
+    }else{
+      event.target.style.border=""
     }
-    for (let index = 0; index < this.tableArr.length; index++) {
-      if (this.tableArr[index].name == event.target.className) {
-        this.tableClicked.push(this.tableArr[index])
-      }
-
-    }
-    this.resultOfTableClicked()
+    console.log(event.target.className)
   }
 
   cardClickedPlayer1(event) {
