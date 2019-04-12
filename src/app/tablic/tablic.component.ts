@@ -26,7 +26,6 @@ export class TablicComponent implements OnInit {
     this.deckArr = this._deckService.deck;
     this.firstDeal();
   }
-//aaaaaaaa
 
   firstDeal(){
     this.dealCardsForTable();
