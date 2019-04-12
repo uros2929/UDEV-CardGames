@@ -68,19 +68,19 @@ export class TablicComponent implements OnInit {
     this.resultOfTableClicked()
   }
 
-  // cardClickedPlayer1(event) {
-  //   if (event.target.style.border == "") {
-  //     event.target.style.border = "5px solid blue"
-  //   } else {
-  //     event.target.style.border = ""
-  //   }
-  //   for (let index = 0; index < this.player1Arr.length; index++) {
-  //     if (this.player1Arr[index].name == event.target.className) {
-  //       this.player1Clicked.push(this.player1Arr[index])
-  //     }
-  //   }
-  //   console.log(this.player1Clicked)
-  // }
+  cardClickedPlayer1(event) {
+    if (event.target.style.border == "") {
+      event.target.style.border = "5px solid blue"
+    } else {
+      event.target.style.border = ""
+    }
+    for (let index = 0; index < this.player1Arr.length; index++) {
+      if (this.player1Arr[index].name == event.target.className) {
+        this.player1Clicked.push(this.player1Arr[index])
+      }
+    }
+    console.log(this.player1Clicked)
+  }
 
   cardClickedPlayer2(event) {
     if (this.tableClicked.length == 0) {
